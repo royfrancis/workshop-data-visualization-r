@@ -39,7 +39,7 @@ execute:
 -->
 
 ::: small
-Updated: {{< meta current_date >}}  at {{< meta current_time >}} .
+Updated: {{< meta current_date >}} at {{< meta current_time >}}.
 :::
 
 :::
