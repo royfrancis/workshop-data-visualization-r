@@ -1,9 +1,10 @@
 ---
-pagetitle: "NBIS Workshop | Advanced Data Visualization"
+pagetitle: "NBIS Workshop • Advanced Data Visualization"
 subtitle: ""
 toc: false
 date: ""
 sidebar: false
+image: "assets/images/seo.webp"
 format:
   html:
     css: "assets/css/home.css"
@@ -13,15 +14,11 @@ format:
     anchor-sections: false
 execute:
   freeze: false
-filters:
-  - particles
 ---
 
 ::: {.home-container}
 ::: {.home-grid-parent}
 ::: {.home-grid-child-left}
-
-
 
 ### NBIS Workshop
 ## Advanced Data Visualization
@@ -46,19 +43,6 @@ Updated: {{< meta current_date >}}  at {{< meta current_time >}} .
 :::
 
 :::
-:::{.home-grid-child-right}
-
-![](assets/images/hero_2605.webp){.nolightbox}
-
-:::
 :::
 :::
 
-{{< particles
-  id="quarto-particlejs"
-  particles.color.value="#BDD775"
-  particles.number.value=150
-  particles.line_linked.color="#BDD775"
-  interactivity.events.onhover.enable=true
-  interactivity.events.onhover.mode=repulse
->}}
