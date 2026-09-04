@@ -78,7 +78,7 @@ jobs:
             formatted_date=$(date -d "${date_spec}" +'%Y %b')
             printf "<div class='workshop-item'><span class='btn btn-tertiary'><a href='https://${GITHUB_REPOSITORY_OWNER}.github.io/${REPO}/${directory}/'>%s</a></span></div>\n" "${formatted_date}" >> _instances.qmd
           done
-          printf "div class='workshop-item'><span class='btn btn-tertiary'><a href='https://nbisweden.github.io/Workshop_geneco_2020_05/docs/'>2020 Nov</a></span></div>\n" >> _instances.qmd
+          printf "<div class='workshop-item'><span class='btn btn-tertiary'><a href='https://nbisweden.github.io/Workshop_geneco_2020_05/docs/'>2020 Nov</a></span></div>\n" >> _instances.qmd
           printf '</div>\n' >> _instances.qmd
 
           # Render
