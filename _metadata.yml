@@ -130,7 +130,7 @@ leaflet:
         icon-color: "#E74856"
         lat: 63.820019
         lon: 20.307814
-        popup: "Room UB341<br> Universitetsbibioteket plan 3<br> Umeå University<br> 901 87 Umeå"
+        popup: "Room UB341<br> Universitetsbiblioteket plan 3<br> Umeå University<br> 901 87 Umeå"
       - tooltip: "Centralstation"
         icon: "fa-solid fa-train"
         icon-color: "#8E8CD8"
