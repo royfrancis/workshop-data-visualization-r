@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/python_polars.html</loc>
-    <lastmod>2026-09-04T22:39:31.196Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.225Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/lab_download.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.214Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/ggplot/slide_gg1.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.213Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/ggplot/lab_pca.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.213Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/ggplot/lab_gg1.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.213Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/dynamic_plotting/lab_dynamic_plot1.html</loc>
-    <lastmod>2026-09-04T22:39:31.064Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.094Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Shiny/slide_shiny2.html</loc>
-    <lastmod>2026-09-04T22:39:31.037Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.067Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Shiny/lab_shiny3.html</loc>
-    <lastmod>2026-09-04T22:39:31.037Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.067Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Shiny/lab_shiny1.html</loc>
-    <lastmod>2026-09-04T22:39:31.037Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.066Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Quarto/slide_quarto1.html</loc>
-    <lastmod>2026-09-04T22:39:31.006Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.036Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Quarto/lab_quarto1.html</loc>
-    <lastmod>2026-09-04T22:39:31.006Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.036Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/index.html</loc>
-    <lastmod>2026-09-04T22:39:30.943Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/home_schedule.html</loc>
-    <lastmod>2026-09-04T22:39:30.943Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/home_info.html</loc>
-    <lastmod>2026-09-04T22:39:30.942Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/home_contents.html</loc>
-    <lastmod>2026-09-04T22:39:30.942Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/data/Installation_check/installation_check.html</loc>
-    <lastmod>2026-09-04T22:39:30.866Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.897Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/home_coc.html</loc>
-    <lastmod>2026-09-04T22:39:30.942Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/home_faq.html</loc>
-    <lastmod>2026-09-04T22:39:30.942Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/home_precourse.html</loc>
-    <lastmod>2026-09-04T22:39:30.943Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/home_syllabus.html</loc>
-    <lastmod>2026-09-04T22:39:30.943Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.973Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/other/docker.html</loc>
-    <lastmod>2026-09-04T22:39:30.943Z</lastmod>
+    <lastmod>2026-09-05T21:15:43.974Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Quarto/lab_quarto2.html</loc>
-    <lastmod>2026-09-04T22:39:31.006Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.036Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Quarto/slide_quarto2.html</loc>
-    <lastmod>2026-09-04T22:39:31.006Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.036Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Shiny/lab_shiny2.html</loc>
-    <lastmod>2026-09-04T22:39:31.037Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.067Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Shiny/slide_shiny1.html</loc>
-    <lastmod>2026-09-04T22:39:31.037Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.067Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/Shiny/slide_shiny3.html</loc>
-    <lastmod>2026-09-04T22:39:31.037Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.067Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/dynamic_plotting/slide_dynamic_plot1.html</loc>
-    <lastmod>2026-09-04T22:39:31.064Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.094Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/ggplot/lab_gg2.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.213Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/ggplot/lab_sc.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.213Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/ggplot/slide_gg2.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.213Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/workshop-data-visualization-r/topics/lab_solutions.html</loc>
-    <lastmod>2026-09-04T22:39:31.185Z</lastmod>
+    <lastmod>2026-09-05T21:15:44.214Z</lastmod>
   </url>
 </urlset>

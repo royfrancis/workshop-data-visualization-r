@@ -33,7 +33,7 @@
 
 /* other quarto variables */
 :root {
-  --quarto-font-monospace: "Fira Mono", "Ubuntu Mono", "Liberation Mono", "Lucida Console", "Courier", "monospace";
+  --quarto-font-monospace: "Fira Mono", "Ubuntu Mono", "Liberation Mono", "Lucida Console", "Courier", monospace;
 }
 
 /* syntax highlight based on Pandoc's rules */
@@ -233,4 +233,4 @@ code span.wa {
   content: "</";
 }
 
-/*# sourceMappingURL=14e6803762266865861e848997017b51.css.map */
+/*# sourceMappingURL=614e068c1487e889e3f3102839a058b4.css.map */
