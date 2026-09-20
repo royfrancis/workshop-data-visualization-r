@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="The schedule is intended for when following a live workshop. If you are following this at your own pace, see Contents">
+<meta name="description" content="The schedule is intended for when following a live workshop. For materials, see Contents">
 
 <title>Schedule</title>
 <style>
@@ -88,7 +88,7 @@ background-size: cover;
 
 
 <meta property="og:title" content="Schedule">
-<meta property="og:description" content="The schedule is intended for when following a live workshop. If you are following this at your own pace, see Contents">
+<meta property="og:description" content="The schedule is intended for when following a live workshop. For materials, see Contents">
 <meta property="og:image" content="https://nbisweden.github.io/workshop-data-visualization-r/assets/images/seo.webp">
 </head>
 
@@ -157,7 +157,7 @@ background-size: cover;
       <h1 class="title">Schedule</h1>
                   <div>
         <div class="description">
-          The schedule is intended for when following a live workshop. If you are following this at your own pace, see <strong>Contents</strong>
+          The schedule is intended for when following a live workshop. For materials, see <strong>Contents</strong>
         </div>
       </div>
                 </div>
@@ -183,6 +183,7 @@ background-size: cover;
 
 
 
+<!-- Remember to set first schedule date in the YAML above -->
 <style>#toastui-calendar-1 .toastui-calendar-timegrid { height: 900px; min-height: unset; }</style>
 <div class="toastui-calendar-wrapper">
 <div class="toastui-nav" id="toastui-calendar-1-nav">
@@ -196,15 +197,166 @@ background-size: cover;
     <button class="toastui-nav-btn toastui-view-btn" data-view="day">Day</button>
   </span>
 </div>
-<div id="toastui-calendar-1" class=" toastui-calendar-detail-popup-enabled" style="height: 980px;"></div>
+<div id="toastui-calendar-1" class="toastui-calendar-detail-popup-enabled toastui-calendar-detail-exclude-location toastui-calendar-detail-exclude-recurrence-rule toastui-calendar-detail-exclude-state toastui-calendar-detail-exclude-body" style="height: 980px;"></div>
 </div>
 <script>
 (function() {
   var opts = {"defaultView":"week","isReadOnly":true,"timezone":{"zones":[{"timezoneName":"Europe/Stockholm"}]},"usageStatistics":false,"useDetailPopup":true,"week":{"eventView":["time"],"hourEnd":21,"hourStart":9,"showNowIndicator":true,"taskView":false,"workweek":true}};
   opts.calendars = [{"backgroundColor":"#D6EAF8","borderColor":"#85C1E9","color":"inherit","dragBackgroundColor":"#D6EAF8","id":"session","name":"Session"},{"backgroundColor":"#FCF3CF","borderColor":"#F7DC6F","color":"inherit","dragBackgroundColor":"#FCF3CF","id":"free","name":"Free"},{"backgroundColor":"#E8DAEF","borderColor":"#BB8FCE","color":"inherit","dragBackgroundColor":"#E8DAEF","id":"extra","name":"Extra"}];
-  var cal = new tui.Calendar(document.getElementById("toastui-calendar-1"), opts);
+  var timeFormat = "24h";
+  var eventDetailItems = ["attendees"];
+  var popupDetailItems = ["attendees","calendar"];
+  opts.template = opts.template || {};
+  var detailItemIcons = {
+    location: 'toastui-calendar-ic-location-b',
+    recurrenceRule: 'toastui-calendar-ic-repeat-b',
+    attendees: 'toastui-calendar-ic-user-b',
+    state: 'toastui-calendar-ic-state-b',
+    calendar: 'toastui-calendar-calendar-dot'
+  };
+  var nativeDetailItems = {
+    location: true,
+    recurrenceRule: true,
+    attendees: true,
+    state: true,
+    calendar: true,
+    body: true
+  };
+  function pad(value) {
+    return String(value).padStart(2, '0');
+  }
+  function formatTime(value) {
+    var hours = value.getHours();
+    var minutes = pad(value.getMinutes());
+    if (timeFormat === '24h') {
+      return pad(hours) + ':' + minutes;
+    }
+    return (hours % 12 || 12) + ':' + minutes + (hours < 12 ? ' am' : ' pm');
+  }
+  function formatDate(value) {
+    return value.getFullYear() + '.' + pad(value.getMonth() + 1) + '.' + pad(value.getDate());
+  }
+  function isSameDate(left, right) {
+    return left.getFullYear() === right.getFullYear() &&
+      left.getMonth() === right.getMonth() &&
+      left.getDate() === right.getDate();
+  }
+  function escapeHtml(value) {
+    var replacements = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function(character) {
+      return replacements[character];
+    });
+  }
+  function eventDetailValue(event, item) {
+    if (item === 'calendar') {
+      var calendars = opts.calendars || [];
+      for (var index = 0; index < calendars.length; index++) {
+        if (calendars[index].id === event.calendarId) return calendars[index].name || '';
+      }
+      return '';
+    }
+
+    var value = event[item];
+    if (value == null && event.raw) value = event.raw[item];
+    if (Array.isArray(value)) return value.join(', ');
+    return value == null ? '' : value;
+  }
+  function renderEventDetails(event) {
+    var details = eventDetailItems.map(function(item) {
+      var value = eventDetailValue(event, item);
+      if (value === '') return '';
+      var iconClass = Object.prototype.hasOwnProperty.call(detailItemIcons, item) ? detailItemIcons[item] : '';
+      var iconStyle = item === 'calendar' && event.backgroundColor ? ' style="background-color:' + escapeHtml(event.backgroundColor) + '"' : '';
+      var icon = iconClass ? '<span class="toastui-calendar-icon toastui-calendar-event-detail-icon ' + iconClass + '"' + iconStyle + '></span>' : '';
+      var label = Object.prototype.hasOwnProperty.call(nativeDetailItems, item) ? '' : '<strong>' + escapeHtml(item) + ':</strong> ';
+      return '<span class="toastui-calendar-event-detail-item">' + icon + label + escapeHtml(value) + '</span>';
+    }).join('');
+    return details ? '<span class="toastui-calendar-event-detail-items">' + details + '</span>' : '';
+  }
+  function renderCustomPopupDetails(event) {
+    var customItems = popupDetailItems.filter(function(item) {
+      return !Object.prototype.hasOwnProperty.call(nativeDetailItems, item);
+    });
+    if (customItems.length === 0) return true;
+
+    var section = container.querySelector('.toastui-calendar-section-detail');
+    if (!section) return false;
+    section.querySelectorAll('.toastui-calendar-custom-detail-item').forEach(function(element) {
+      element.remove();
+    });
+    customItems.forEach(function(item) {
+      var value = eventDetailValue(event, item);
+      if (value === '') return;
+      var row = document.createElement('div');
+      row.className = 'toastui-calendar-detail-item toastui-calendar-custom-detail-item';
+      var label = document.createElement('strong');
+      label.textContent = item + ': ';
+      row.appendChild(label);
+      row.appendChild(document.createTextNode(String(value)));
+      section.appendChild(row);
+    });
+    return true;
+  }
+
+  opts.template.time = function(event) {
+    var title = escapeHtml(event.title);
+    var titleAndTime = event.start ? '<strong>' + formatTime(event.start) + '</strong>&nbsp;' + title : title;
+    return titleAndTime + renderEventDetails(event);
+  };
+  opts.template.timegridDisplayPrimaryTime = function(model) {
+    return formatTime(model.time);
+  };
+  opts.template.timegridDisplayTime = function(model) {
+    return formatTime(model.time);
+  };
+  opts.template.timegridNowIndicatorLabel = function(model) {
+    return formatTime(model.time);
+  };
+  opts.template.popupDetailDate = function(event) {
+    var sameDate = isSameDate(event.start, event.end);
+    if (event.isAllday) {
+      return formatDate(event.start) + (sameDate ? '' : ' - ' + formatDate(event.end));
+    }
+
+    var end = (sameDate ? '' : formatDate(event.end) + ' ') + formatTime(event.end);
+    return formatDate(event.start) + ' ' + formatTime(event.start) + ' - ' + end;
+  };
+  var container = document.getElementById("toastui-calendar-1");
+  var cal = new tui.Calendar(container, opts);
+  function fitShortTimedEvent(event) {
+    if (!event.start || !event.end || event.isAllday || event.category === 'allday') return;
+
+    var duration = event.end.getTime() - event.start.getTime();
+    var minimumDuration = 30 * 60 * 1000;
+    if (duration <= 0 || duration >= minimumDuration) return;
+
+    var weekOptions = opts.week || {};
+    var hourStart = weekOptions.hourStart == null ? 0 : Number(weekOptions.hourStart);
+    var hourEnd = weekOptions.hourEnd == null ? 24 : Number(weekOptions.hourEnd);
+    var visibleDuration = (hourEnd - hourStart) * 60 * 60 * 1000;
+    if (visibleDuration <= 0) return;
+
+    var height = duration / visibleDuration * 100;
+    if (event.id == null || event.id === '') return;
+    var eventId = String(event.id);
+    container.querySelectorAll('.toastui-calendar-event-time').forEach(function(element) {
+      if (element.getAttribute('data-event-id') !== eventId) return;
+      element.style.height = 'max(1px, calc(' + height + '% - 2px))';
+      element.style.minHeight = '0';
+      element.style.overflow = 'hidden';
+      var content = element.querySelector('.toastui-calendar-event-time-content');
+      if (content) {
+        content.style.minHeight = '0';
+        content.style.overflow = 'hidden';
+      }
+    });
+  }
+  cal.on('afterRenderEvent', fitShortTimedEvent);
   var __ev = [{"attendees":["Markus Ringner"],"calendarId":"extra","end":"2026-05-05T09:15:00","start":"2026-05-05T09:00:00","title":"Welcome"},{"attendees":["Lokesh Mano"],"calendarId":"session","end":"2026-05-05T10:15:00","start":"2026-05-05T09:15:00","title":"ggplot2 basics"},{"attendees":[],"calendarId":"free","end":"2026-05-05T10:30:00","start":"2026-05-05T10:15:00","title":"Break"},{"attendees":["Lokesh Mano"],"calendarId":"session","end":"2026-05-05T12:00:00","start":"2026-05-05T10:30:00","title":"ggplot2 advanced"},{"attendees":[],"calendarId":"free","end":"2026-05-05T13:00:00","start":"2026-05-05T12:00:00","title":"Lunch"},{"attendees":["Markus Ringner"],"calendarId":"session","end":"2026-05-05T13:30:00","start":"2026-05-05T13:00:00","title":"Vectors and bitmaps"},{"attendees":["Markus Ringner"],"calendarId":"session","end":"2026-05-05T15:00:00","start":"2026-05-05T13:30:00","title":"PCA plots"},{"attendees":[],"calendarId":"free","end":"2026-05-05T15:30:00","start":"2026-05-05T15:00:00","title":"Fika"},{"attendees":["Lokesh Mano"],"calendarId":"session","end":"2026-05-05T16:30:00","start":"2026-05-05T15:30:00","title":"Single-cell"},{"attendees":["Lokesh Mano"],"calendarId":"extra","end":"2026-05-05T17:00:00","start":"2026-05-05T16:30:00","title":"Wrap-up day 1"},{"attendees":["Katja Kozjek"],"calendarId":"session","end":"2026-05-06T10:15:00","start":"2026-05-06T09:00:00","title":"Quarto"},{"attendees":[],"calendarId":"free","end":"2026-05-06T10:30:00","start":"2026-05-06T10:15:00","title":"Break"},{"attendees":["Katja Kozjek"],"calendarId":"session","end":"2026-05-06T11:00:00","start":"2026-05-06T10:30:00","title":"Quarto continued..."},{"attendees":["Katja Kozjek"],"calendarId":"session","end":"2026-05-06T12:00:00","start":"2026-05-06T11:00:00","title":"Dynamic plots"},{"attendees":[],"calendarId":"free","end":"2026-05-06T13:00:00","start":"2026-05-06T12:00:00","title":"Lunch"},{"attendees":["Katja Kozjek"],"calendarId":"session","end":"2026-05-06T14:00:00","start":"2026-05-06T13:00:00","title":"Dynamic plots continued..."},{"attendees":["Katja Kozjek"],"calendarId":"session","end":"2026-05-06T15:00:00","start":"2026-05-06T14:00:00","title":"Dashboards"},{"attendees":[],"calendarId":"free","end":"2026-05-06T15:30:00","start":"2026-05-06T15:00:00","title":"Fika"},{"attendees":["Katja Kozjek"],"calendarId":"session","end":"2026-05-06T16:30:00","start":"2026-05-06T15:30:00","title":"Dashboards continued..."},{"attendees":["Lokesh Mano"],"calendarId":"extra","end":"2026-05-06T17:00:00","start":"2026-05-06T16:30:00","title":"Wrap-up day 2"},{"attendees":[],"calendarId":"extra","end":"2026-05-06T20:30:00","start":"2026-05-06T18:00:00","title":"Dinner"},{"attendees":["Lokesh Mano"],"calendarId":"session","end":"2026-05-07T10:15:00","start":"2026-05-07T09:00:00","title":"R-Shiny I"},{"attendees":[],"calendarId":"free","end":"2026-05-07T10:30:00","start":"2026-05-07T10:15:00","title":"Break"},{"attendees":["Lokesh Mano"],"calendarId":"session","end":"2026-05-07T12:00:00","start":"2026-05-07T10:30:00","title":"R-Shiny II"},{"attendees":[],"calendarId":"free","end":"2026-05-07T13:00:00","start":"2026-05-07T12:00:00","title":"Lunch"},{"attendees":["Lokesh Mano"],"calendarId":"session","end":"2026-05-07T15:00:00","start":"2026-05-07T13:00:00","title":"R-Shiny III"},{"attendees":[],"calendarId":"free","end":"2026-05-07T15:30:00","start":"2026-05-07T15:00:00","title":"Fika"},{"attendees":[],"calendarId":"session","end":"2026-05-07T16:30:00","start":"2026-05-07T15:30:00","title":"Own shiny app"},{"attendees":["Lokesh Mano"],"calendarId":"extra","end":"2026-05-07T16:45:00","start":"2026-05-07T16:30:00","title":"Wrap-up day 3"},{"attendees":["Lokesh Mano"],"calendarId":"extra","end":"2026-05-07T17:00:00","start":"2026-05-07T16:45:00","title":"Closing and feedback"}];
-  __ev.forEach(function(e) {
+  __ev.forEach(function(e, index) {
+    if (e.id == null || e.id === '') e.id = 'toastui-calendar-1-event-' + index;
+    var source = Object.assign({}, e, e.raw && typeof e.raw === 'object' ? e.raw : {});
+    e.raw = source;
     if (!e.state) e.state = '';
     if (!e.attendees || (Array.isArray(e.attendees) && e.attendees.length === 0)) e.attendees = null;
   });
