@@ -83,6 +83,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
 <link href="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -216,7 +218,7 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">20-Sep-2026</p>
+        <p class="date">23-Sep-2026</p>
       </div>
     </div>
     
@@ -247,11 +249,20 @@ background-size: cover;
 
 
 
-<br>
-<div class="abstract spaced">
-<p>This is an introduction to shiny web applications with R. Please follow the exercise to familiarise yourself with the fundamentals. And then you can follow instructions to build an app with interactive plots related to the Covid data. Code chunks starting with <code>shinyApp()</code> can be simply copy-pasted to the RStudio console and run. Generally, complete shiny code is saved as a text file, named for example, as <strong>app.R</strong> and then clicking <strong>Run app</strong> launches the app.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p><br></p>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is an introduction to shiny web applications with R. Please follow the exercise to familiarise yourself with the fundamentals. And then you can follow instructions to build an app with interactive plots related to the Covid data. Code chunks starting with <code>shinyApp()</code> can be simply copy-pasted to the RStudio console and run. Generally, complete shiny code is saved as a text file, named for example, as <strong>app.R</strong> and then clicking <strong>Run app</strong> launches the app.</p>
+<p><i class="fa-solid fa-hand-sparkles" aria-label="hand-sparkles"></i> Interactive app</p>
+</div>
+</div>
 <section id="ui-layout" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> UI • Layout</h1>
 <p>This is an example to show the layout of widgets on a webpage using shiny functions. <code>fluidPage()</code> is used to define a responsive webpage. <code>titlePanel()</code> is used to define the top bar. <code>sidebarLayout()</code> is used to create a layout that includes a region on the left called side bar panel and a main panel on the right. The contents of these panels are further defined under <code>sidebarPanel()</code> and <code>mainPanel()</code>.</p>

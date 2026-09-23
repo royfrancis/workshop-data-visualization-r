@@ -83,6 +83,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
 <link href="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -211,7 +213,7 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">20-Sep-2026</p>
+        <p class="date">23-Sep-2026</p>
       </div>
     </div>
     
@@ -250,6 +252,19 @@ background-size: cover;
 
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><i class="fa-solid fa-hand-sparkles" aria-label="hand-sparkles"></i> Interactive app</p>
+</div>
+</div>
 <section id="reactivity" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Reactivity</h1>
 <p>We will here first look into the example of what the automatic reactivity of Rshiny looks like. The reactive functions like <code>renderPlot()</code> and <code>renderPrint()</code> are always looking for any changes in the input values and are updated quickly! Although this is super handy for any app, sometimes this can lead to unwanted confusion. Like, take the R function <code>rnorm()</code>, this function basically spits out random numbers. If you use this function in an app, everytime this function is called, it will output different random number sets. This can cause problems like in the example below:</p>
