@@ -1,5 +1,6 @@
 <div class='workshop-list'>
 <div class='workshop-item'><span class='btn btn-tertiary'><a href='https://royfrancis.github.io/workshop-data-visualization-r/2705/'>2027 May</a></span></div>
+<div class='workshop-item'><span class='btn btn-tertiary'><a href='https://royfrancis.github.io/workshop-data-visualization-r/2704/'>2027 Apr</a></span></div>
 <div class='workshop-item'><span class='btn btn-tertiary'><a href='https://royfrancis.github.io/workshop-data-visualization-r/2605/'>2026 May</a></span></div>
 <div class='workshop-item'><span class='btn btn-tertiary'><a href='https://royfrancis.github.io/workshop-data-visualization-r/2505/'>2025 May</a></span></div>
 <div class='workshop-item'><span class='btn btn-tertiary'><a href='https://royfrancis.github.io/workshop-data-visualization-r/2404/'>2024 Apr</a></span></div>
