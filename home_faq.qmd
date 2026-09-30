@@ -9,7 +9,7 @@ number-sections: false
 accordion:
   - faq:
     - header: 1. When and where is the next workshop?
-      body: This workshop typically runs once a year in Spring (March/April). The workshop is advertised a few months in advance on NBIS training (https://nbis.se/training) and SciLifeLab training hub (https://training.scilifelab.se/events). Workshops can be online or on-site. This is specified when advertised.
+      body: This workshop typically runs once a year in Spring (March/April). The workshop is advertised a few months in advance on [NBIS training](https://nbis.se/training) and [SciLifeLab training hub](https://training.scilifelab.se/events). Workshops can be online or on-site. This is specified when advertised.
     - header: 2. Am I eligible to apply?
       body: |
         This is a national course open to PhD students, postdocs, group leaders, research assistants, core facility staff and other laboratory, medical or veterinary personnel. A background in genetics, cell biology, biomedicine, biochemistry, veterinary, bioinformatics or comparable is desirable. You need to be affiliated to an institution (university, company etc) as we cannot invoice individuals. Applications in connection with Arbetsförmedlingen / Trygghetsstiftelsen needs to be handled on a case-by-case basis. Applicants affiliated to a Swedish institution are prioritized due to our funding. International applicants and master's students are considered only if/when seats are available.
