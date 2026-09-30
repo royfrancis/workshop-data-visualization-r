@@ -35,6 +35,7 @@ jobs:
           echo "output_dir=$output_dir" >> "$GITHUB_OUTPUT"
 
       - name: Render site
+        if: github.event.action != 'closed'
         run: |
           # Render website
           echo "Rendering qmd files ..."
